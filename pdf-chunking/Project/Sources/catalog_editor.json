@@ -1,0 +1,67 @@
+{
+	"tables": {
+		"Chunk": {
+			"color": {
+				"red": 168,
+				"green": 206,
+				"blue": 226,
+				"alpha": 255
+			},
+			"coordinates": {
+				"left": 514.10546875,
+				"top": 239.78125,
+				"width": 120,
+				"height": 167.33203125
+			},
+			"displayable_fields_count": 6
+		},
+		"Page": {
+			"color": {
+				"red": 168,
+				"green": 206,
+				"blue": 226,
+				"alpha": 255
+			},
+			"coordinates": {
+				"left": 284.82421875,
+				"top": 183.4296875,
+				"width": 120,
+				"height": 167.33203125
+			},
+			"displayable_fields_count": 6
+		},
+		"Document": {
+			"color": {
+				"red": 168,
+				"green": 206,
+				"blue": 226,
+				"alpha": 255
+			},
+			"coordinates": {
+				"left": 86.50390625,
+				"top": 77.83203125,
+				"width": 120,
+				"height": 167.33203125
+			},
+			"displayable_fields_count": 6
+		}
+	},
+	"relations": {
+		"BA97B61B8940402EAA075F799A98A9D2": {
+			"color": {
+				"red": 255,
+				"green": 255,
+				"blue": 255,
+				"alpha": 0
+			}
+		},
+		"39DEC12CDD19410D8926DCF9018029F5": {
+			"color": {
+				"red": 255,
+				"green": 255,
+				"blue": 255,
+				"alpha": 0
+			}
+		}
+	}
+}

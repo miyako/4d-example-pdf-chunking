@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="pdf-chunking" uuid="570FDE5981E5435E97271FFC68A53655" collation_locale="en">
+	<schema name="DEFAULT_SCHEMA"/>
+	<table name="Document" uuid="DCF471F7693B49749064C747BC19AD1F" id="1">
+		<field name="Id" uuid="A3B72FF4E3C5461D85325E708192BB65" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="data" uuid="BBB9701C6DE64B0EA1093020C10D88B3" type="18" id="2"/>
+		<field name="name" uuid="BA1388631D6546208B7FF8DD0C339261" type="10" id="3"/>
+		<field name="extension" uuid="F8DD0F22DB90484A9E6EFE203FBFF09E" type="10" id="4"/>
+		<primary_key field_name="Id" field_uuid="A3B72FF4E3C5461D85325E708192BB65"/>
+	</table>
+	<table name="Page" uuid="1D9E6317307F4E628978399DC2D98127" id="2">
+		<field name="Id" uuid="F6A94E24047246FA8881B5CB1BFA2D47" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="documentId" uuid="CB6CC86C24824EDD8085CA81CB9452D3" type="4" id="2">
+			<field_extra multi_line="false"/>
+		</field>
+		<field name="number" uuid="3C08DB9868B24DF2BBBB439703AF3FAA" type="4" id="3"/>
+		<field name="text" uuid="9E93135722A143148E22DA0E19028C94" type="10" id="4"/>
+		<primary_key field_name="Id" field_uuid="F6A94E24047246FA8881B5CB1BFA2D47"/>
+	</table>
+	<table name="Chunk" uuid="ACF398933789468A9B65224AA7B91F1A" id="3">
+		<field name="Id" uuid="76C8BE2401224AFFA921DC5A7538B312" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="pageId" uuid="6D58DBDF64C743DCADB51F6079578B5A" type="4" id="2"/>
+		<field name="start" uuid="2D2DC85CDF1D4324AEDD4B56B1BE6B9A" type="4" id="3"/>
+		<field name="end" uuid="1CE298C9F42842BC80489A849C5A29EC" type="4" id="4"/>
+		<field name="embedding" uuid="E6F1CB7AA2F34A57950C2C06C51CDD56" type="21" blob_switch_size="2147483647" id="5">
+			<field_extra class_id="4D.Vector"/>
+		</field>
+		<primary_key field_name="Id" field_uuid="76C8BE2401224AFFA921DC5A7538B312"/>
+	</table>
+	<relation uuid="39DEC12CDD19410D8926DCF9018029F5" name_Nto1="document" name_1toN="pages" state="1">
+		<related_field kind="source">
+			<field_ref uuid="CB6CC86C24824EDD8085CA81CB9452D3" name="documentId">
+				<table_ref uuid="1D9E6317307F4E628978399DC2D98127" name="Page"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A3B72FF4E3C5461D85325E708192BB65" name="Id">
+				<table_ref uuid="DCF471F7693B49749064C747BC19AD1F" name="Document"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="BA97B61B8940402EAA075F799A98A9D2" name_Nto1="page" name_1toN="chunks" state="1">
+		<related_field kind="source">
+			<field_ref uuid="6D58DBDF64C743DCADB51F6079578B5A" name="pageId">
+				<table_ref uuid="ACF398933789468A9B65224AA7B91F1A" name="Chunk"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="F6A94E24047246FA8881B5CB1BFA2D47" name="Id">
+				<table_ref uuid="1D9E6317307F4E628978399DC2D98127" name="Page"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<index kind="regular" uuid="353814CC679A4384BD92486E211A9942" type="3">
+		<field_ref uuid="F8DD0F22DB90484A9E6EFE203FBFF09E" name="extension">
+			<table_ref uuid="DCF471F7693B49749064C747BC19AD1F" name="Document"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="5B6ABB028A364308A9F9B853E3F73522" type="7">
+		<field_ref uuid="76C8BE2401224AFFA921DC5A7538B312" name="Id">
+			<table_ref uuid="ACF398933789468A9B65224AA7B91F1A" name="Chunk"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="8633DE33F0BB49CCBC32CCC5896DBF00" type="7">
+		<field_ref uuid="F6A94E24047246FA8881B5CB1BFA2D47" name="Id">
+			<table_ref uuid="1D9E6317307F4E628978399DC2D98127" name="Page"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="9C9A6716EDE84F4F9E94E596714B5C90" type="3">
+		<field_ref uuid="6D58DBDF64C743DCADB51F6079578B5A" name="pageId">
+			<table_ref uuid="ACF398933789468A9B65224AA7B91F1A" name="Chunk"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="C38ED7B59FED41C8A4C70DEE29B73498" type="3">
+		<field_ref uuid="CB6CC86C24824EDD8085CA81CB9452D3" name="documentId">
+			<table_ref uuid="1D9E6317307F4E628978399DC2D98127" name="Page"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="CCCAF5E177C649AFAF20514A5DF364CE" type="1">
+		<field_ref uuid="BA1388631D6546208B7FF8DD0C339261" name="name">
+			<table_ref uuid="DCF471F7693B49749064C747BC19AD1F" name="Document"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="ECD090187642423DB2EB1C7FC08731BE" type="3">
+		<field_ref uuid="3C08DB9868B24DF2BBBB439703AF3FAA" name="number">
+			<table_ref uuid="1D9E6317307F4E628978399DC2D98127" name="Page"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="FFE8FF52B53E4C19A44F9FDAF61BA8C5" type="7">
+		<field_ref uuid="A3B72FF4E3C5461D85325E708192BB65" name="Id">
+			<table_ref uuid="DCF471F7693B49749064C747BC19AD1F" name="Document"/>
+		</field_ref>
+	</index>
+	<base_extra>
+		<journal_file journal_file_enabled="true"/>
+	</base_extra>
+</base>
