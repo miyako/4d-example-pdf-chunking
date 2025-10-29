@@ -39,7 +39,7 @@ Else
 			$i+=1
 			$page.save()
 			If (($i%10)=0)
-				DELAY PROCESS:C323(Current process:C322; 30)
+				DELAY PROCESS:C323(Current process:C322; 60)
 /*
 ulimit -n is low (256) on Mac
 don't create too many system workers at once
