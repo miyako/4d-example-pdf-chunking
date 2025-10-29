@@ -3,7 +3,7 @@
 
 /*
 this worker is triggered by 
-chnuk entity event afterSave 
+chunk entity event afterSave 
 */
 
 If ($embeddingsResult.success)

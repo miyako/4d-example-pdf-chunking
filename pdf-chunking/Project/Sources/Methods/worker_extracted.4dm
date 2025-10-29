@@ -38,6 +38,13 @@ Else
 			$page.number:=$i
 			$i+=1
 			$page.save()
+			If (($i%10)=0)
+				DELAY PROCESS:C323(Current process:C322; 6)
+/*
+ulimit -n is low (256) on Mac
+don't create too many system workers at once
+*/
+			End if 
 		End for each 
 	End if 
 End if 
