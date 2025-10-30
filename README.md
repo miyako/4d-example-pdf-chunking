@@ -48,3 +48,6 @@ Use `llama.cpp` to locally process PDF for semantic search
   
 <img width="931" height="662" alt="スクリーンショット Tables" src="https://github.com/user-attachments/assets/34e554d3-38c2-4d30-9535-92dd5adfa728" />
 
+* Form
+
+<img width="867" height="554" alt="" src="https://github.com/user-attachments/assets/6c60dd3f-3b7f-4bc4-bd7f-e63246a48285" />
