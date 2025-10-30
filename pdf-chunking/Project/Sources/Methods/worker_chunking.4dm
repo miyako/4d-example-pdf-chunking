@@ -2,8 +2,8 @@
 #DECLARE($task : Object)
 
 /*
-this worker is triggered by 
-page entity event afterSave 
+this worker is triggered   
+when page entities are saved
 */
 
 var $worker : 4D:C1709.Function

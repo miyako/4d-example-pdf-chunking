@@ -13,17 +13,13 @@ Else
 	//restore context
 	var $data : Object
 	$data:=$params.context
-	var $dataClassName : Text
-	$dataClassName:=$data.dataClassName
+	
 	var $documentId : Integer
 	$documentId:=Num:C11($data.primaryKey)
 	
 	//get data
 	var $extracted : Object
 	$extracted:=JSON Parse:C1218($worker.response; Is object:K8:27)
-	
-	var $undropped : 4D:C1709.EntitySelection
-	$undropped:=ds:C1482.Page.query("documentId == :1"; $documentId).drop()
 	
 	//create pages
 	If ($extracted.type="pdf")
@@ -38,13 +34,20 @@ Else
 			$page.number:=$i
 			$i+=1
 			$page.save()
-			If (($i%10)=0)
-				DELAY PROCESS:C323(Current process:C322; 60)
-/*
-ulimit -n is low (256) on Mac
-don't create too many system workers at once
-*/
-			End if 
 		End for each 
+		
+		var $worker_chunking : 4D:C1709.Function
+		$worker_chunking:=Formula:C1597(worker_chunking)
+		var $task : Object
+		$task:={file: $worker.response; \
+			data: $data; \
+			capacity: "150..750"; \
+			overlap: 75; \
+			tiktoken: True:C214; \
+			compact: True:C214; \
+			batch: True:C214}
+		
+		CALL WORKER:C1389($worker_chunking.source; $worker_chunking; $task)
+		
 	End if 
 End if 

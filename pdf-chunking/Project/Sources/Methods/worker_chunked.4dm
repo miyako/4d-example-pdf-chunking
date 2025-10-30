@@ -13,24 +13,25 @@ Else
 	//restore context
 	var $data : Object
 	$data:=$params.context
-	var $dataClassName : Text
-	$dataClassName:=$data.dataClassName
-	var $pageId : Integer
-	$pageId:=Num:C11($data.primaryKey)
+	
+	var $documentId : Integer
+	$documentId:=Num:C11($data.primaryKey)
 	
 	//get data
 	var $chunked : Collection
 	$chunked:=JSON Parse:C1218($worker.response; Is collection:K8:32)
 	
-	var $undropped : 4D:C1709.EntitySelection
-	$undropped:=ds:C1482.Chunk.query("pageId == :1"; $pageId).drop()
-	
 	//create chunks
-	
+	var $page : cs:C1710.PageEntity
+	var $number : Integer
 	var $chunk : cs:C1710.ChunkEntity
+	var $pages : cs:C1710.PageSelection
+	$pages:=ds:C1482.Page.query("documentId == :1"; $documentId)
 	For each ($data; $chunked)
+		$number:=$data.page+1
+		$page:=$pages.query("number == :1"; $number).first()
 		$chunk:=ds:C1482.Chunk.new()
-		$chunk.pageId:=$pageId
+		$chunk.pageId:=$page.Id
 		$chunk.start:=$data.start
 		$chunk.end:=$data.end
 		$chunk.save()

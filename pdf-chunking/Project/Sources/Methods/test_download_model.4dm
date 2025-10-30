@@ -2,16 +2,14 @@
 #DECLARE($params : Object)
 
 If (Count parameters:C259=0)
-	CALL WORKER:C1389("test"; Current method name:C684; {})
+	var $file : 4D:C1709.File
+	var $lang; $URL : Text
+	$file:=File:C1566("/RESOURCES/models/nomic-embed-text-v1.5.f16.gguf")
+	$URL:="https://huggingface.co/nomic-ai/nomic-embed-text-v1.5-GGUF/resolve/main/nomic-embed-text-v1.5.f16.gguf"
+	CALL WORKER:C1389(Current method name:C684; Current method name:C684; {lang: $lang; file: $file; URL: $URL})
 Else 
 	
-	var $file : 4D:C1709.File
-	$file:=File:C1566("/RESOURCES/models/nomic-embed-text-v1.5.f16.gguf")
-	
-	var $URL : Text
-	$URL:="https://github.com/miyako/4d-example-pdf-chunking/releases/download/nomic-embed-text-v1.5.f16.gguf/nomic-embed-text-v1.5.f16.gguf"
-	
 	var $model : cs:C1710.Model
-	$model:=cs:C1710.Model.new($file; $URL)
+	$model:=cs:C1710.Model.new($params.file; $params.URL)
 	
 End if 

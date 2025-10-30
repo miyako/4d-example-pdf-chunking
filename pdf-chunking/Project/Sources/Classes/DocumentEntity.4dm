@@ -10,7 +10,6 @@ Function event afterSave($event : Object)
 		$context:={\
 			name: This:C1470.name; \
 			extension: This:C1470.extension; \
-			dataClassName: $event.dataClassName; \
 			primaryKey: This:C1470.getKey(dk key as string:K85:16)}
 		
 		var $worker : 4D:C1709.Function
@@ -22,5 +21,8 @@ Function event afterSave($event : Object)
 		
 	Else 
 		var $undropped : 4D:C1709.EntitySelection
-		$undropped:=This:C1470.pages.drop()
+		var $pages : cs:C1710.PageSelection
+		$pages:=This:C1470.pages
+		$undropped:=$pages.chunks.drop()
+		$undropped:=$pages.drop()
 	End if 
