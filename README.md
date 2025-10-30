@@ -10,15 +10,26 @@ Use llama.cpp to locally process PDF for semantic search
   graph TD;
   A[Start] --> |"File.getContent()"| B[Load PDF to BLOB];
   B --> |"Entity.save()"|C[Save BLOB to DocumentEntity];
-  C --> D[DocumentEntity event afterSave];
-  D --> |CALL WORKER| E[Extract Text of all pages];
-  E --> |On Response| F[Save Text of all pages to PageEntitySelection];
-  F --> |CALL WORKER| G[Split Text of all pages into Chunks];
+  C --> C2[DocumentEntity event afterSave];
+  C2 --> C3{"savedAttributes.includes(&quot;data&quot;)"};
+  C3 -- Yes --> C4{"(This.data#Null) && (This.data.size#0)"};
+  C3 -- No  --> Z((END));
+  C4 -- Yes --> D[CALL WORKER];
+  C4 -- No --> C5[Drop This.pages.chunks, This.pages];
+  C5 --> Z[End];
+  D --> E[Extract text from all pages];
+  E --> |On Response| F[Save extracted text to PageEntitySelection];
+  F --> F2[CALL WORKER];
+  F2 --> G[Split Text of all pages into Chunks];
   G --> |On Response| H[Save Chunks to ChunkEntitySelection];
-  H --> |CALL WORKER| I[Generate Embeddings from Chunks];
-  I --> |On Response| J[Save Embedding to ChunkEntity];
+  H --> |"Entity.save()"| H2[ChunkEntity event afterSave];
+  H2 --> H3{"savedAttributes.includes(&quot;embedding&quot;)"};
+  H3 -- Yes --> H4[CALL WORKER];
+  H3 -- No  --> Z((END));
+  H4 --> J[Generate Embeddings from Chunks];
+  J --> |On Response| K[Save Embedding to ChunkEntity];
+  K --> |"Entity.save()"| H2[ChunkEntity event afterSave];
 ```
-
 
 ## Screenshots
 
