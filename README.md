@@ -26,8 +26,8 @@ Use `llama.cpp` to locally process PDF for semantic search
   H2 --> H3{"savedAttributes.includes(&quot;embedding&quot;)"};
   H3 -- Yes --> H4[CALL WORKER];
   H3 -- No  --> Z((END));
-  H4 --> J[Generate Embeddings from Chunks];
-  J --> |On Response| K[Save Embedding to ChunkEntity];
+  H4 --> J[Generate embeddings from chunks];
+  J --> |On Response| K[Save embedding to ChunkEntity];
   K --> |"Entity.save()"| H2[ChunkEntity event afterSave];
 ```
 
