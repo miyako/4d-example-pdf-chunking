@@ -1,4 +1,4 @@
-pdf-chunking/Data/*
+pdf-chunking/Data/
 pdf-chunking/userPreferences.*
 pdf-chunking/Project/DerivedData/*
 pdf-chunking/Resources/models/nomic-embed-text-v1.5.f16.gguf
