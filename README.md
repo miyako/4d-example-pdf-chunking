@@ -40,14 +40,16 @@ Use `llama.cpp` to locally process PDF for semantic search
 
 ## Screenshots
 
-* Catalog
+### Catalog
 
 <img width="1004" height="631" alt="Catalog" src="https://github.com/user-attachments/assets/f587a720-9693-425b-9c2d-9140e68859a6" />
 
-* MSC > Information > Tables
+### MSC > Information > Tables
   
 <img width="931" height="662" alt="スクリーンショット Tables" src="https://github.com/user-attachments/assets/34e554d3-38c2-4d30-9535-92dd5adfa728" />
 
-* Form
+### Form
 
 <img width="867" height="554" alt="" src="https://github.com/user-attachments/assets/6c60dd3f-3b7f-4bc4-bd7f-e63246a48285" />
+
+<img width="925" height="589" alt="" src="https://github.com/user-attachments/assets/3763d361-cb61-44e1-bb2c-3f0fecee61c0" />
