@@ -5,6 +5,13 @@
 # 4d-example-pdf-chunking
 Use `llama.cpp` to locally process PDF for semantic search
 
+[dependencies](https://github.com/miyako/example-pdf-chunking/blob/main/pdf-chunking/Project/Sources/dependencies.json)
+
+* [`miyako/extract`](https://github.com/miyako/extract)
+* [`miyako/llama-cpp`](https://github.com/miyako/llama-cpp)
+* [`miyako/text-splitter`](https://github.com/miyako/text-splitter)
+* [`4d/4D-AIKit`](https://github.com/4d/4D-AIKit)
+
 
 ```mermaid
   graph TD;
