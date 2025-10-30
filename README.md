@@ -5,7 +5,7 @@
 # 4d-example-pdf-chunking
 Use `llama.cpp` to locally process PDF for semantic search
 
-[dependencies](https://github.com/miyako/example-pdf-chunking/blob/main/pdf-chunking/Project/Sources/dependencies.json)
+[dependencies](https://github.com/miyako/4d-example-pdf-chunking/blob/main/pdf-chunking/Project/Sources/dependencies.json)
 
 * [`miyako/extract`](https://github.com/miyako/extract)
 * [`miyako/llama-cpp`](https://github.com/miyako/llama-cpp)
