@@ -7,7 +7,7 @@ If (OK=1)
 	$pdfFiles:=Folder:C1567("/RESOURCES/pdf").files().query("extension == :1"; ".pdf")
 	
 	var $pdfFile : 4D:C1709.File
-	$pdfFile:=$pdfFiles.last()
+	//$pdfFile:=$pdfFiles.last()
 	
 	For each ($pdfFile; $pdfFiles)
 		test_parse_pdf($pdfFile)
