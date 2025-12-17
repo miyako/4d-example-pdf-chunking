@@ -7,7 +7,7 @@ Else
 	$homeFolder:=Folder:C1567(fk home folder:K87:24).folder(".LlamaEdge")
 	var $model : cs:C1710.LlamaEdge.LlamaEdgeModel
 	var $file : 4D:C1709.File
-	var $URL : Text
+	var $URL; $path; $model_name; $model_alias : Text
 	var $prompt_template : Text
 	var $ctx_size : Integer
 	
@@ -34,11 +34,20 @@ paths are relative to $home which is mapped to . in wasm
 	
 	//#2 is embedding model
 	
-	$file:=$homeFolder.file("nomic-ai/nomic-embed-text-v2-moe.Q5_K_M.gguf")
-	$URL:="https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe-GGUF/resolve/main/nomic-embed-text-v2-moe.Q5_K_M.gguf"
-	$path:="./.LlamaEdge/nomic-ai/"+$file.fullName
-	$prompt_template:="embedding"
-	$ctx_size:=512
+	If (False:C215)
+		$file:=$homeFolder.file("nomic-ai/nomic-embed-text-v2-moe.Q5_K_M.gguf")
+		$URL:="https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe-GGUF/resolve/main/nomic-embed-text-v2-moe.Q5_K_M.gguf"
+		$path:="./.LlamaEdge/nomic-ai/"+$file.fullName
+		$prompt_template:="embedding"
+		$ctx_size:=512
+	Else 
+		$file:=$homeFolder.file("nomic-ai/nomic-embed-text-v1.Q8_0.gguf")
+		$URL:="https://huggingface.co/nomic-ai/nomic-embed-text-v1-GGUF/resolve/main/nomic-embed-text-v1.Q8_0.gguf"
+		$path:="./.LlamaEdge/nomic-ai/"+$file.fullName
+		$prompt_template:="embedding"
+		$ctx_size:=8192
+	End if 
+	
 	$model_name:="nomic"
 	$model_alias:="embedding"
 	
@@ -56,7 +65,7 @@ Function onSuccess($params : Object; $models : cs.event.models)
 */
 	$event.onError:=Formula:C1597(ALERT:C41($2.message))
 	$event.onSuccess:=Formula:C1597(ALERT:C41($2.models.extract("name").join(",")+" loaded!"))
-	$event.onData:=Formula:C1597(MESSAGE:C88(String:C10((This:C1470.range.end/This:C1470.range.length)*100; "###.00%")))  //onData@4D.HTTPRequest
+	//$event.onData:=Formula(MESSAGE(String((This.range.end/This.range.length)*100; "###.00%")))  //onData@4D.HTTPRequest
 	$event.onResponse:=Formula:C1597(ERASE WINDOW:C160)  //onResponse@4D.HTTPRequest
 	
 	$LlamaEdge:=cs:C1710.LlamaEdge.LlamaEdge.new($port; $models; {home: $homeFolder}; $event)
