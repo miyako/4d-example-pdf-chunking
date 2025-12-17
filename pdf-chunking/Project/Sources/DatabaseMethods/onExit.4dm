@@ -1,3 +1,3 @@
-var $llama : cs:C1710.llama.llama
-$llama:=cs:C1710.llama.llama.new()
-$llama.terminate()
+var $LlamaEdge : cs:C1710.LlamaEdge.LlamaEdge
+$LlamaEdge:=cs:C1710.LlamaEdge.LlamaEdge.new()
+$LlamaEdge.terminate()

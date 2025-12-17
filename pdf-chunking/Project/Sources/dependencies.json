@@ -13,8 +13,8 @@
 			"github": "4d/4D-AIKit",
 			"version": "latest"
 		},
-		"llama cpp": {
-			"github": "miyako/llama-cpp",
+		"LlamaEdge": {
+			"github": "miyako/LlamaEdge",
 			"version": "latest"
 		}
 	}
