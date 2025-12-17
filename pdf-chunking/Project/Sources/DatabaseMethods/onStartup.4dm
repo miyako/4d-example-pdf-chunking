@@ -66,7 +66,7 @@ Function onSuccess($params : Object; $models : cs.event.models)
 	$event.onError:=Formula:C1597(ALERT:C41($2.message))
 	$event.onSuccess:=Formula:C1597(ALERT:C41($2.models.extract("name").join(",")+" loaded!"))
 	//$event.onData:=Formula(MESSAGE(String((This.range.end/This.range.length)*100; "###.00%")))  //onData@4D.HTTPRequest
-	$event.onResponse:=Formula:C1597(ERASE WINDOW:C160)  //onResponse@4D.HTTPRequest
+	//$event.onResponse:=Formula(ERASE WINDOW)  //onResponse@4D.HTTPRequest
 	
 	$LlamaEdge:=cs:C1710.LlamaEdge.LlamaEdge.new($port; $models; {home: $homeFolder}; $event)
 	
