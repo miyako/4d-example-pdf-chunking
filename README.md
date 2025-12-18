@@ -3,7 +3,7 @@
 [![license](https://img.shields.io/github/license/miyako/4d-example-pdf-chunking)](LICENSE)
 
 # 4d-example-pdf-chunking
-Use `llama.cpp` to locally process PDF for semantic search
+Use LLM to locally process PDF for semantic search
 
 [dependencies](https://github.com/miyako/4d-example-pdf-chunking/blob/main/pdf-chunking/Project/Sources/dependencies.json)
 
