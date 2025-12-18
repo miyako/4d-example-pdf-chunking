@@ -9,6 +9,10 @@ Use `llama.cpp` to locally process PDF for semantic search
 
 * [`miyako/extract`](https://github.com/miyako/extract)
 * [`miyako/LlamaEdge`](https://github.com/miyako/LlamaEdge)
+* [`miyako/CTranslate2`](https://github.com/miyako/CTranslate2)
+  * [`miyako/workers`](https://github.com/miyako/workers)
+  * [`miyako/tcp`](https://github.com/miyako/tcp)
+  * [`miyako/event`](https://github.com/miyako/event) 
 * [`miyako/text-splitter`](https://github.com/miyako/text-splitter)
 * [`4d/4D-AIKit`](https://github.com/4d/4D-AIKit)
 
