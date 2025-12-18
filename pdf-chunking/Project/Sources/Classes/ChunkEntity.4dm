@@ -20,7 +20,7 @@ Function event afterSave($event : Object)
 			$text:=This:C1470.page.get_text_from_previous_page(25)+$text
 		End if 
 		
-		$model:="nomic"
+		//$model:="default"
 		$dataClassName:="Chunk"  //This.getDataClass().getInfo().name
 		$attributeName:="embedding"
 		

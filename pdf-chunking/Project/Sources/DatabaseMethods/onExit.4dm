@@ -1,3 +1,3 @@
-var $LlamaEdge : cs:C1710.LlamaEdge.LlamaEdge
-$LlamaEdge:=cs:C1710.LlamaEdge.LlamaEdge.new()
-$LlamaEdge.terminate()
+var $CTranslate2 : cs:C1710.CTranslate2.CTranslate2
+$CTranslate2:=cs:C1710.CTranslate2.CTranslate2.new()
+$CTranslate2.terminate()

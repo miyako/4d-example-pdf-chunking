@@ -11,10 +11,14 @@
 		},
 		"4D AIKit": {
 			"github": "4d/4D-AIKit",
-			"version": "latest"
+			"version": "4d"
 		},
 		"LlamaEdge": {
 			"github": "miyako/LlamaEdge",
+			"version": "latest"
+		},
+		"CTranslate2": {
+			"github": "miyako/CTranslate2",
 			"version": "latest"
 		}
 	}

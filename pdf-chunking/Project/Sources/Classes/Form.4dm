@@ -12,7 +12,7 @@ Class constructor
 	This:C1470.threshold:=5
 	This:C1470.AIClient:=cs:C1710.AIKit.OpenAI.new()
 	This:C1470.AIClient.baseURL:="http://127.0.0.1:8080/v1"
-	This:C1470.model:="nomic"
+	//This.model:="default"
 	This:C1470.parameters:=cs:C1710.AIKit.OpenAIEmbeddingsParameters.new()
 	This:C1470.parameters.formula:=Formula:C1597(Form:C1466._didSearch.call(This:C1470; $1))
 	This:C1470.chunks:=ds:C1482.Chunk.query("embedding != null")  //can't have This=null in query formula
