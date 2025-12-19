@@ -10,4 +10,6 @@ var $AIClient : cs:C1710.AIKit.OpenAI
 $AIClient:=cs:C1710.AIKit.OpenAI.new()
 $AIClient.baseURL:=$baseURL
 
-$AIClient.embeddings.create($text; $model; $options)
+var $embeddingsResult : cs:C1710.AIKit.OpenAIEmbeddingsResult
+$embeddingsResult:=$AIClient.embeddings.create($text; $model; $options)
+

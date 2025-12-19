@@ -1,4 +1,4 @@
-//%attributes = {"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"capable"}
 #DECLARE($params : Object)
 
 If (Count parameters:C259=0)
@@ -9,7 +9,7 @@ Else
 	$chunks:=ds:C1482.Chunk.query("embedding == null")
 	var $chunk : cs:C1710.ChunkEntity
 	
-	For each ($chunk; $chunks)
+	For each ($chunk; $chunks; -100)
 		$chunk.pageId:=$chunk.pageId
 		$chunk.save()
 	End for each 

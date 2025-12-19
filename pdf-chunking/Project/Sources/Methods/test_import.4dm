@@ -1,4 +1,4 @@
-//%attributes = {"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"capable"}
 CONFIRM:C162("are you sure you want to import PDF?")
 
 If (OK=1)
