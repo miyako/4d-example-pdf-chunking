@@ -9,7 +9,7 @@ Else
 	$chunks:=ds:C1482.Chunk.query("embedding == null")
 	var $chunk : cs:C1710.ChunkEntity
 	
-	For each ($chunk; $chunks; -100)
+	For each ($chunk; $chunks)
 		$chunk.pageId:=$chunk.pageId
 		$chunk.save()
 	End for each 
