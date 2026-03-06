@@ -101,7 +101,8 @@
 					"fontWeight": "bold",
 					"stroke": "#dc143c",
 					"sizingY": "move",
-					"fill": "transparent"
+					"fill": "transparent",
+					"sizingX": "grow"
 				},
 				"Results": {
 					"type": "listbox",
@@ -166,7 +167,7 @@
 		}
 	],
 	"menuBar": "Barre #1",
-	"geometryStamp": 135,
+	"geometryStamp": 136,
 	"editor": {
 		"activeView": "View 1",
 		"defaultView": "View 1",
