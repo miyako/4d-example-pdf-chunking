@@ -49,10 +49,12 @@ $folder.create()
 If (Not:C34($logFile.exists))
 	$logFile.setContent(4D:C1709.Blob.new())
 End if 
-var $threads; $max_position_embeddings; $batch_size : Integer
-$threads:=System info:C1571.cpuThreads\2
+var $cores; $max_position_embeddings; $batch_size; $parallel; $threads; $batches : Integer
+$cores:=System info:C1571.cores\2
 $max_position_embeddings:=512
-$batch_size:=512  //could go up to max_position_embeddings
+$batch_size:=512
+$batches:=32
+$threads:=1
 
 var $port : Integer
 $port:=8080
@@ -60,9 +62,9 @@ $options:={\
 embeddings: True:C214; \
 pooling: "mean"; \
 log_file: $logFile; \
-ctx_size: $batch_size*$threads; \
-batch_size: $batch_size; \
-parallel: $threads; \
+ctx_size: $batch_size*$batches*$threads; \
+batch_size: $batch_size+$batches; \
+parallel: $cores; \
 threads: $threads; \
 threads_batch: $threads; \
 threads_http: $threads; \
