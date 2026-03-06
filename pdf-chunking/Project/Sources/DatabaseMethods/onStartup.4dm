@@ -69,7 +69,7 @@ threads: $threads; \
 threads_batch: $threads; \
 threads_http: $threads; \
 log_disable: False:C215; \
-n_gpu_layers: 0}
+n_gpu_layers: -1}
 
 $huggingface:=cs:C1710.event.huggingface.new($folder; $URL; $path)
 $huggingfaces:=cs:C1710.event.huggingfaces.new([$huggingface])
