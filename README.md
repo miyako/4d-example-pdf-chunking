@@ -35,10 +35,10 @@ Use LLM to locally process PDF for semantic search
   G --> |On Response| H[Save Chunks to ChunkEntitySelection];
   H --> |"Entity.save()"| H2[ChunkEntity event afterSave];
   H2 --> H3{"savedAttributes.includes(&quot;embedding&quot;)"};
-  H3 -- Yes --> H4[CALL WORKER];
+  H3 -- Yes --> H4[Generate embeddings from chunks];
   H3 -- No  --> Z((END));
-  H4 --> J[Generate embeddings from chunks];
-  J --> |On Response| K[Save embedding to ChunkEntity];
+  H4 -- Success --> K[Save embedding to ChunkEntity];
+  H4 -- Fail --> Z((END));
   K --> |"Entity.save()"| H2[ChunkEntity event afterSave];
 ```
 
