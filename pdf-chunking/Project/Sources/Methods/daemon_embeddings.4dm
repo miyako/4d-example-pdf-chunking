@@ -65,7 +65,7 @@ Case of
 			var $embeddingsResult : cs:C1710.AIKit.OpenAIEmbeddingsResult
 			$embeddingsResult:=$AIClient.embeddings.create($input; $model; $options)
 			method_embedded($embeddingsResult)
-			$start+=0
+			$start+=32
 			$end+=32
 			$batches:=$chunks.slice($start; $end)
 		End while 
