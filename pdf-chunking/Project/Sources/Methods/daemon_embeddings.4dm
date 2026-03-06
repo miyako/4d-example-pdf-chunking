@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"preemptive":"capable"}
+//%attributes = {"preemptive":"capable"}
 #DECLARE($baseURL : Text; $text : Text; $model : Text; $options : cs:C1710.AIKit.OpenAIEmbeddingsParameters)
 
 var $worker : 4D:C1709.Function

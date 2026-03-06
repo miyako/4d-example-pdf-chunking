@@ -54,7 +54,7 @@ $cores:=System info:C1571.cores\2
 $max_position_embeddings:=512
 $batch_size:=512
 $batches:=32
-$threads:=1
+$threads:=2
 
 var $port : Integer
 $port:=8080
