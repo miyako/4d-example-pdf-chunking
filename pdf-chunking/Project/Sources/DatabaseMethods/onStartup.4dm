@@ -39,9 +39,9 @@ use Q8_0 quantisation
 
 $homeFolder:=Folder:C1567(fk home folder:K87:24).folder(".GGUF")
 
-$folder:=$homeFolder.folder("multilingual-e5-base")
-$path:="multilingual-e5-base-Q8_0.gguf"
-$URL:="keisuke-miyako/multilingual-e5-base-gguf-q8_0"
+$folder:=$homeFolder.folder("multilingual-e5-small")
+$path:="multilingual-e5-small-Q8_0.gguf"
+$URL:="keisuke-miyako/multilingual-e5-small-gguf-q8_0"
 
 var $logFile : 4D:C1709.File
 $logFile:=$folder.file("llama.log")
@@ -54,6 +54,7 @@ $threads:=System info:C1571.cpuThreads\2
 $max_position_embeddings:=512
 $batch_size:=512  //could go up to max_position_embeddings
 
+var $port : Integer
 $port:=8080
 $options:={\
 embeddings: True:C214; \
@@ -70,6 +71,5 @@ n_gpu_layers: 0}
 
 $huggingface:=cs:C1710.event.huggingface.new($folder; $URL; $path)
 $huggingfaces:=cs:C1710.event.huggingfaces.new([$huggingface])
-
 
 $llama:=cs:C1710.llama.llama.new($port; $huggingfaces; $homeFolder; $options; $event)

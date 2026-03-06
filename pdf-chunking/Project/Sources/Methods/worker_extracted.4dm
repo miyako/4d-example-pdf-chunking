@@ -50,8 +50,8 @@ text-splitter batch mode expects JSON
 	var $task : Object
 	$task:={file: JSON Stringify:C1217($extracted); \
 		data: $data; \
-		capacity: "150..750"; \
-		overlap: 75; \
+		capacity: "96..512"; \
+		overlap: 48; \
 		tiktoken: True:C214; \
 		compact: True:C214; \
 		batch: True:C214}

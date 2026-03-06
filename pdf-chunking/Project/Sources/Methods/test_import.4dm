@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"preemptive":"capable"}
+//%attributes = {"preemptive":"capable"}
 #DECLARE($params : Object)
 
 If (Count parameters:C259=0)
@@ -16,7 +16,7 @@ Else
 	
 	var $pdfFile : 4D:C1709.File
 	//$pdfFile:=$pdfFiles.last()
-		
+	
 	For each ($pdfFile; $pdfFiles)
 		test_parse_pdf($pdfFile)
 	End for each 
